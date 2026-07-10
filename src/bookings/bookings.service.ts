@@ -19,8 +19,25 @@ export class BookingsService {
     private servicesService: ServicesService,
   ) {}
 
-  findAll() {
-    return this.bookingRepository.find();
+  async findAll(status?: BookingStatus, page: number = 1, limit: number = 10) {
+    const skip = (page - 1) * limit; // how many records to skip
+
+    const [bookings, total] = await this.bookingRepository.findAndCount({
+      where: status ? { status } : {},
+      skip,
+      take: limit,
+      order: { createdAt: 'DESC' }, // newest first
+    });
+
+    return {
+      data: bookings,
+      meta: {
+        total, // total number of bookings matching the filter
+        page, // current page
+        limit, // items per page
+        totalPages: Math.ceil(total / limit),
+      },
+    };
   }
 
   async findOne(id: number) {
