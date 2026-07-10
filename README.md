@@ -5,11 +5,18 @@ Built as a technical assignment for EN2H Software Engineer Internship.
 
 ## Tech Stack
 
-- **Framework:** NestJS (TypeScript) - **Database:** PostgreSQL with TypeORM - **Authentication:** JWT (JSON Web Tokens) + Bcrypt - **Documentation:** Swagger UI - **Validation:** class-validator + class-transformer
+- **Framework:** NestJS (TypeScript)
+- **Database:** PostgreSQL with TypeORM
+- **Authentication:** JWT (JSON Web Tokens) + Bcrypt
+- **Documentation:** Swagger UI
+- **Validation:** class-validator + class-transformer
 
 ## Project Overview
 
-This API allows: - Staff (authenticated users) to manage services and view/update bookings - Customers (unauthenticated) to browse services and create bookings
+This API allows:
+
+- Staff (authenticated users) to manage services and view/update bookings
+- Customers (unauthenticated) to browse services and create bookings
 
 ## Installation
 
