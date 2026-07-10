@@ -13,7 +13,10 @@ import { ServicesService } from './services.service';
 import { CreateServiceDto } from './dto/create-service.dto';
 import { UpdateServiceDto } from './dto/update-service.dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
+@ApiTags('services')
 @Controller('services')
 export class ServicesController {
   constructor(private servicesService: ServicesService) {}
@@ -29,6 +32,7 @@ export class ServicesController {
   }
 
   @Post()
+  @ApiBearerAuth()
   @UseGuards(JwtAuthGuard)
   create(@Body() dto: CreateServiceDto) {
     return this.servicesService.create(dto);

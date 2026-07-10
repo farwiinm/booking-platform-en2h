@@ -13,7 +13,9 @@ import { BookingsService } from './bookings.service';
 import { CreateBookingDto } from './dto/create-booking.dto';
 import { UpdateBookingStatusDto } from './dto/update-booking-status.dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-
+import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth } from '@nestjs/swagger';
+@ApiTags('bookings')
 @Controller('bookings')
 export class BookingsController {
   constructor(private bookingsService: BookingsService) {}
